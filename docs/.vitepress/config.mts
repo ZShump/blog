@@ -7,7 +7,7 @@ export default defineConfig({
   head: [
     [
       'link',
-      { rel: 'icon', href: '/logo.svg' }
+      { rel: 'icon', href: '/blog/logo.svg' }
     ]
   ],
   themeConfig: {
