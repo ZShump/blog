@@ -39,6 +39,7 @@ export default defineConfig({
                 { text: '线性代数', link: '/knowledge/ai/线性代数' },
                 { text: 'Transformer 模型', link: '/knowledge/ai/Transformer模型' },
                 { text: 'Claude Code 完全使用指南', link: '/knowledge/ai/Claude Code 完全使用指南' },
+                { text: 'Harness Engineering 入门', link: '/knowledge/ai/harness-engineering入门' },
               ]
             },
             {
