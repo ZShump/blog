@@ -106,7 +106,7 @@ const stats = computed(() => {
               <div class="date-full">{{ article.date }}</div>
             </div>
             <div class="timeline-content">
-              <a :href="article.url" class="timeline-title">
+              <a :href="`/blog${article.url}`" class="timeline-title">
                 {{ article.title }}
               </a>
               <span class="timeline-category">{{ article.category }}</span>
