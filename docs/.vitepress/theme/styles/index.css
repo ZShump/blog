@@ -1,0 +1,32 @@
+/* VitePress 主题样式 */
+
+/* 全局样式重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 只为自定义首页设置样式，不影响其他页面 */
+.layout-custom-home {
+  width: 100%;
+}
+
+.layout-custom-home .VPNav {
+  display: none;
+}
+
+.layout-custom-home .VPContent {
+  padding: 0 !important;
+}
+
+.layout-custom-home .VPDoc {
+  padding: 0 !important;
+  max-width: none !important;
+}
