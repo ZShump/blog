@@ -96,7 +96,6 @@ metadata:
    - 清理标题用作文件名（移除特殊字符，保留中文）
    - 在 `c:\Users\27929\Desktop\repos\blog\docs\knowledge\{category}\` 创建 markdown 文件
    - 写入处理后的内容（模式 B 为生成的文章，模式 A 为图片路径已更新）
-   - 如需要添加 frontmatter
 
    示例文件路径：
    ```
