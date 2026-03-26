@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -o \"1691326678824-aefc25af-0628-40d9-b6a1-0a3216ee799c.png\" \"https://cdn.nlark.com/yuque/0/2023/png/22365484/1691326678824-aefc25af-0628-40d9-b6a1-0a3216ee799c.png\")",
+      "Bash(curl -o \"1691549428917-fbef80eb-3713-481d-88e3-52b1d5528703.webp\" \"https://cdn.nlark.com/yuque/0/2023/webp/22365484/1691549428917-fbef80eb-3713-481d-88e3-52b1d5528703.webp\")",
+      "Bash(curl -o \"1691549935297-4a713c8d-2871-4315-884d-f6e8287e1897.webp\" \"https://cdn.nlark.com/yuque/0/2023/webp/22365484/1691549935297-4a713c8d-2871-4315-884d-f6e8287e1897.webp\")",
+      "Bash(curl -o \"1691562561310-0f092885-9b6d-4319-b123-c467507c7abe.webp\" \"https://cdn.nlark.com/yuque/0/2023/webp/22365484/1691562561310-0f092885-9b6d-4319-b123-c467507c7abe.webp\")"
+    ]
+  }
+}

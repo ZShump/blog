@@ -34,6 +34,7 @@ export default defineConfig({
                 { text: '神经网络', link: '/knowledge/ai/神经网络' },
                 { text: '线性代数', link: '/knowledge/ai/线性代数' },
                 { text: 'Transformer 模型', link: '/knowledge/ai/Transformer模型' },
+                { text: 'Claude Code 完全使用指南', link: '/knowledge/ai/Claude Code 完全使用指南' },
               ]
             },
             {
