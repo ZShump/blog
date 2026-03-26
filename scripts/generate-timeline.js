@@ -35,8 +35,9 @@ const getFirstCommitDate = (filePath) => {
     })
 
     if (result.trim()) {
-      // 返回完整的 YYYY-MM-DD HH:mm:ss 格式
-      return result.trim()
+      // 返回 YYYY-MM-DD HH:mm:ss 格式（去掉时区）
+      const datetime = result.trim().split(' +')[0]
+      return datetime
     }
     return null
   } catch (error) {
