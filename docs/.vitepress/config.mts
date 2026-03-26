@@ -4,6 +4,7 @@ export default defineConfig({
   base: '/blog/',
   title: "shump的个人博客",
   description: '个人学习笔记记录',
+  lastUpdated: true,
   head: [
     [
       'link',
@@ -16,10 +17,13 @@ export default defineConfig({
     nav: [
       // 导航项，包含文字和跳转的链接
       { text: '首页', link: '/' },
-
+      { text: '时间线', link: '/timeline' },
       { text: '知识库', link: '/knowledge/' },
       { text: '工具', link: '/tools/' },
     ],
+    search: {
+      provider: 'local'
+    },
 
     sidebar: {
       '/knowledge/': [
