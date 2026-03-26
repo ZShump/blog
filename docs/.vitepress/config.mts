@@ -1,10 +1,16 @@
 import { defineConfig } from 'vitepress'
+import { mermaid } from 'vitepress-plugin-mermaid'
 
 export default defineConfig({
   base: '/blog/',
   title: "shump的个人博客",
   description: '个人学习笔记记录',
   lastUpdated: true,
+  markdown: {
+    config: (md) => {
+      md.use(mermaid)
+    }
+  },
   head: [
     [
       'link',
