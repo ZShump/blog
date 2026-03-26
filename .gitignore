@@ -6,6 +6,9 @@ node_modules
 docs/.vitepress/dist
 docs/.vitepress/cache
 
+# 构建时生成的文件
+docs/public/timeline.json
+
 # 日志文件
 *.log
 npm-debug.log*
