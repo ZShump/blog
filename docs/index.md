@@ -11,10 +11,10 @@ hero:
   actions:
     - theme: brand
       text: 📚 开始阅读
-      link: /knowledge/
+      link: /知识库/
     - theme: alt
       text: 🧰 工具箱
-      link: /tools/
+      link: /工具/
     - theme: alt
       text: ⭐ GitHub
       link: https://github.com/ZShump/blog
@@ -22,19 +22,19 @@ hero:
 features:
   - title: ☕ JAVA 开发
     details: 深入探讨 Java 核心技术、JVM 原理、并发编程等，分享实战经验和最佳实践
-    link: /knowledge/java/
+    link: /知识库/java/
     linkText: 查看详情
   - title: 🤖 人工智能
     details: 探索 AI 前沿技术，包括机器学习、深度学习、大语言模型等领域的学习笔记
-    link: /knowledge/ai/
+    link: /知识库/ai/
     linkText: 查看详情
   - title: 📊 大数据技术
     details: 研究大数据生态体系，涵盖 Hadoop、Spark、Flink 等分布式计算框架
-    link: /knowledge/bigdata/
+    link: /知识库/大数据/
     linkText: 查看详情
   - title: 🛠️ 开发工具
     details: 收录实用的开发工具、效率提升技巧、常用命令和配置指南
-    link: /tools/
+    link: /工具/
     linkText: 查看详情
   - title: 📖 系统学习
     details: 按照知识体系系统化学习，从基础到进阶，建立完整的技术知识图谱
