@@ -8,7 +8,7 @@ metadata:
   version: "1.0"
 ---
 
-发布新笔记到 VitePress 博客，自动更新配置。支持三种模式：
+发布新笔记到 VitePress 博客。支持三种模式：
 1. 从本地文件/文件夹读取已写好的文章
 2. 直接粘贴已写好的 markdown 内容
 3. 提供原始材料，AI 总结并生成文章后发布
@@ -19,8 +19,8 @@ metadata:
 
 **固定路径配置**
 - 博客根目录：`c:\Users\27929\Desktop\repos\blog`
-- 知识库目录：`c:\Users\27929\Desktop\repos\blog\docs\knowledge`
-- 配置文件：`c:\Users\27929\Desktop\repos\blog\docs\.vitepress\config.mts`
+- 知识库目录：`c:\Users\27929\Desktop\repos\blog\docs\知识库`
+- 配置生成脚本：`c:\Users\27929\Desktop\repos\blog\scripts\generate-config.js`
 
 **输入**：用户指定文档路径、粘贴内容，或提供原始材料要求总结。
 
@@ -65,7 +65,7 @@ metadata:
 4. **收集文章信息**
 
    如果未在步骤 1-3 中确定，使用 AskUserQuestion 工具询问：
-   - **分类**：AI (docs/knowledge/ai/)、大数据 (docs/knowledge/bigdata/) 或 JAVA (docs/knowledge/java/)
+   - **分类**：AI (docs/知识库/ai/)、大数据 (docs/知识库/大数据/) 或 JAVA (docs/知识库/java/)
    - **标题**：文章标题（如果未指定，从文件名或内容中提取）
 
    示例：
@@ -94,36 +94,17 @@ metadata:
 6. **创建文章文件**
 
    - 清理标题用作文件名（移除特殊字符，保留中文）
-   - 在 `c:\Users\27929\Desktop\repos\blog\docs\knowledge\{category}\` 创建 markdown 文件
+   - 在 `c:\Users\27929\Desktop\repos\blog\docs\知识库\{category}\` 创建 markdown 文件
    - 写入处理后的内容（模式 B 为生成的文章，模式 A 为图片路径已更新）
 
    示例文件路径：
    ```
-   c:\Users\27929\Desktop\repos\blog\docs\knowledge\ai\深度学习基础.md
-   c:\Users\27929\Desktop\repos\blog\docs\knowledge\bigdata\Kafka入门.md
-   c:\Users\27929\Desktop\repos\blog\docs\knowledge\java\并发编程.md
+   c:\Users\27929\Desktop\repos\blog\docs\知识库\ai\深度学习基础.md
+   c:\Users\27929\Desktop\repos\blog\docs\知识库\大数据\Kafka入门.md
+   c:\Users\27929\Desktop\repos\blog\docs\知识库\java\并发编程.md
    ```
 
-7. **更新 VitePress 配置**
-
-   读取 `c:\Users\27929\Desktop\repos\blog\docs\.vitepress\config.mts` 并更新侧边栏：
-   - 找到对应的分类部分
-   - 将新文章添加到 items 列表
-   - 保持格式和现有条目不变
-
-   示例侧边栏条目：
-   ```typescript
-   {
-     text: '深度学习基础',
-     link: '/knowledge/ai/深度学习基础'
-   }
-   ```
-
-8. **更新分类索引页**（可选）
-
-   如果分类有 index.md 文件（如 `c:\Users\27929\Desktop\repos\blog\docs\knowledge\bigdata\index.md`），将文章添加到列表中。
-
-9. **自动提交并推送**（重要）
+7. **自动提交并推送**（重要）
 
    发布完成后，切换到博客目录并自动执行以下操作：
 
@@ -154,7 +135,6 @@ metadata:
 
     - 验证文件创建正确
     - 验证图片已复制（如适用）
-    - 验证配置已更新
     - 验证 git 提交和推送成功
     - 向用户显示完整的发布总结
 
@@ -178,9 +158,6 @@ metadata:
 
 创建文章文件...
 ✓ 文件已创建: {filepath}
-
-更新配置...
-✓ {category} 侧边栏已更新
 
 提交并推送...
 ✓ 切换到博客目录
@@ -225,9 +202,6 @@ metadata:
 创建文章文件...
 ✓ 文件已创建: {filepath}
 
-更新配置...
-✓ {category} 侧边栏已更新
-
 提交并推送...
 ✓ 切换到博客目录
 ✓ Git 状态检查完成
@@ -250,7 +224,7 @@ metadata:
 **字数**: {word_count} 字（模式 B）
 **Git**: 已提交并推送
 
-**位置**: c:\Users\27929\Desktop\repos\blog\docs\knowledge\{category}\{filename}.md
+**位置**: c:\Users\27929\Desktop\repos\blog\docs\知识库\{category}\{filename}.md
 
 ### 提交信息
 ```
@@ -264,18 +238,17 @@ feat: 添加 {title} 文章
 ```
 
 ### 后续步骤
-1. 等待 GitHub Actions 自动部署
-2. 几分钟后访问博客查看：https://shump.github.io/blog/knowledge/{category}/{filename}
-3. 如需本地预览，运行：`cd c:\Users\27929\Desktop\repos\blog && pnpm docs:dev`
+1. 运行 `cd c:\Users\27929\Desktop\repos\blog && node scripts/generate-config.js` 更新导航和侧边栏
+2. 等待 GitHub Actions 自动部署
+3. 几分钟后访问博客查看：https://shump.github.io/blog/知识库/{category}/{filename}
+4. 如需本地预览，运行：`cd c:\Users\27929\Desktop\repos\blog && pnpm docs:dev`
 ```
 
 **注意事项**
 - **所有操作都在固定博客目录进行，无论当前在哪个目录调用此 skill**
 - 始终清理文件名以避免文件系统问题
 - 创建前检查文件是否已存在 - 询问用户是否要覆盖
-- 更新配置时保留现有侧边栏条目
 - 对中文文件名的链接使用正确的 URL 编码（空格用 %20）
-- 始终保持配置文件格式（TypeScript，正确的缩进）
 - 复制图片前检查源文件是否存在
 - 如果图片复制失败，显示警告但继续处理
 - 模式 B 生成文章时，确保内容专业、准确、结构清晰
@@ -284,12 +257,13 @@ feat: 添加 {title} 文章
 - **git 提交前检查 git status，确保只提交相关文件**
 - **推送前确保在正确的分支上（通常是 master）**
 - **如果推送失败，保留本地提交，提示用户手动处理**
+- **发布文章后，运行 `node scripts/generate-config.js` 来自动更新导航和侧边栏**
 
 **支持的分类**
 
-- **AI**: `/knowledge/ai/` - 人工智能和机器学习
-- **大数据**: `/knowledge/bigdata/` - 大数据技术
-- **JAVA**: `/knowledge/java/` - Java 编程
+- **AI**: `/知识库/ai/` - 人工智能和机器学习
+- **大数据**: `/知识库/大数据/` - 大数据技术
+- **JAVA**: `/知识库/java/` - Java 编程
 
 **使用示例**
 
@@ -368,17 +342,17 @@ git push
 ```
 c:\Users\27929\Desktop\repos\blog\
 ├── docs/
-│   ├── knowledge/
+│   ├── 知识库/
 │   │   ├── ai/
-│   │   │   ├── index.md
+│   │   │   ├── README.md
 │   │   │   ├── 神经网络.md
 │   │   │   └── Transformer模型.md
-│   │   ├── bigdata/
-│   │   │   ├── index.md
+│   │   ├── 大数据/
+│   │   │   ├── README.md
 │   │   │   ├── HBase.md
 │   │   │   └── Kafka入门.md
 │   │   └── java/
-│   │       └── index.md
+│   │       └── README.md
 │   ├── public/
 │   │   └── images/
 │   │       ├── ai/
@@ -386,7 +360,7 @@ c:\Users\27929\Desktop\repos\blog\
 │   │       └── bigdata/
 │   │           └── kafka-flow.png
 │   └── .vitepress/
-│       └── config.mts  # 将更新为新文章
+│       └── sidebar-nav.js  # 由 generate-config.js 自动生成
 ```
 
 **图片处理详细说明**（仅模式 A）
