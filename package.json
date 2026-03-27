@@ -4,10 +4,11 @@
   "description": "shump的个人博客",
   "main": "index.js",
   "scripts": {
-    "docs:dev": "node scripts/generate-timeline.js && vitepress dev docs",
-    "docs:build": "node scripts/generate-timeline.js && vitepress build docs",
+    "docs:dev": "node scripts/generate-config.js && vitepress dev docs",
+    "docs:build": "node scripts/generate-config.js && vitepress build docs",
     "docs:preview": "vitepress preview docs",
-    "generate:timeline": "node scripts/generate-timeline.js"
+    "generate:timeline": "node scripts/generate-timeline.js",
+    "generate:config": "node scripts/generate-config.js"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +20,11 @@
     "vue": "^3.5.31"
   },
   "dependencies": {
+    "@braintree/sanitize-url": "^7.1.2",
+    "cytoscape": "^3.33.1",
+    "cytoscape-cose-bilkent": "^4.1.0",
+    "dayjs": "^1.11.20",
+    "debug": "^4.4.3",
     "page-agent": "^1.6.2"
   }
 }
