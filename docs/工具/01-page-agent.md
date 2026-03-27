@@ -28,7 +28,7 @@ cp .env.example .env.local
 
 2. 编辑 `.env.local` 文件，填写你的 API 配置：
 
-```env
+```bash
 # API 基础地址
 # 硅基流动: https://api.siliconflow.cn/v1
 # DeepSeek: https://api.deepseek.com/v1

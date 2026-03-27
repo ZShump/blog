@@ -2,7 +2,7 @@ const { execSync } = require('child_process')
 const fs = require('fs')
 const path = require('path')
 
-const knowledgePath = path.join(__dirname, '../docs/knowledge')
+const knowledgePath = path.join(__dirname, '../docs/知识库')
 const outputPath = path.join(__dirname, '../docs/public/timeline.json')
 
 // 确保输出目录存在
@@ -47,7 +47,7 @@ const getFirstCommitDate = (filePath) => {
 }
 
 // 读取所有分类
-const categories = ['ai', 'bigdata', 'java']
+const categories = ['ai', '大数据', 'java']
 
 categories.forEach(category => {
   const categoryPath = path.join(knowledgePath, category)
@@ -57,7 +57,7 @@ categories.forEach(category => {
   }
 
   // 读取该分类下的所有 .md 文件
-  const files = fs.readdirSync(categoryPath).filter(file => file.endsWith('.md') && file !== 'index.md')
+  const files = fs.readdirSync(categoryPath).filter(file => file.endsWith('.md') && file !== 'README.md')
 
   files.forEach(file => {
     const filePath = path.join(categoryPath, file)
@@ -83,7 +83,7 @@ categories.forEach(category => {
     }
 
     // 生成 URL
-    const url = `/knowledge/${category}/${file.replace('.md', '')}`
+    const url = `/知识库/${category}/${file.replace('.md', '')}`
 
     articles.push({
       title,
